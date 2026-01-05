@@ -26,29 +26,3 @@ const uint32_t bootloaderConfig[] = {
     0, 0, 0, 0, 0, 0, 0, 0
     /* CF2 END */
 };
-
-void board_init2(void) {
-  // Turn on rows
-
-  nrf_gpio_cfg(ROW_0_PIN, NRF_GPIO_PIN_DIR_OUTPUT,
-               NRF_GPIO_PIN_INPUT_DISCONNECT, NRF_GPIO_PIN_NOPULL,
-               NRF_GPIO_PIN_H0D1, NRF_GPIO_PIN_NOSENSE);
-  nrf_gpio_pin_write(ROW_0_PIN, 0);
-
-  nrf_gpio_cfg(ROW_1_PIN, NRF_GPIO_PIN_DIR_OUTPUT,
-               NRF_GPIO_PIN_INPUT_DISCONNECT, NRF_GPIO_PIN_NOPULL,
-               NRF_GPIO_PIN_H0D1, NRF_GPIO_PIN_NOSENSE);
-  nrf_gpio_pin_write(ROW_1_PIN, 0);
-
-  nrf_gpio_cfg(ROW_2_PIN, NRF_GPIO_PIN_DIR_OUTPUT,
-               NRF_GPIO_PIN_INPUT_DISCONNECT, NRF_GPIO_PIN_NOPULL,
-               NRF_GPIO_PIN_H0D1, NRF_GPIO_PIN_NOSENSE);
-  nrf_gpio_pin_write(ROW_2_PIN, 0);
-
-  nrf_gpio_cfg(ROW_3_PIN, NRF_GPIO_PIN_DIR_OUTPUT,
-               NRF_GPIO_PIN_INPUT_DISCONNECT, NRF_GPIO_PIN_NOPULL,
-               NRF_GPIO_PIN_H0D1, NRF_GPIO_PIN_NOSENSE);
-  nrf_gpio_pin_write(ROW_3_PIN, 0);
-
-  NRFX_DELAY_MS(300);
-}

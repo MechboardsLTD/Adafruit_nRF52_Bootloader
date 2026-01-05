@@ -46,14 +46,9 @@
 /* BUTTON
  *------------------------------------------------------------------*/
 #define BUTTONS_NUMBER 2
-#define BUTTON_1 _PINNUM(1, 6)
-#define BUTTON_2 _PINNUM(1, 0)
+#define BUTTON_1 _PINNUM(0, 7)
+#define BUTTON_2 _PINNUM(0, 9)
 #define BUTTON_PULL NRF_GPIO_PIN_PULLUP
-
-#define ROW_0_PIN _PINNUM(0, 28)
-#define ROW_1_PIN _PINNUM(0, 29)
-#define ROW_2_PIN _PINNUM(0, 30)
-#define ROW_3_PIN _PINNUM(0, 02)
 
 //--------------------------------------------------------------------+
 // BLE OTA
