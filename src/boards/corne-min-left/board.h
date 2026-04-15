@@ -45,15 +45,10 @@
 /*------------------------------------------------------------------*/
 /* BUTTON
  *------------------------------------------------------------------*/
-#define BUTTONS_NUMBER 2
-#define BUTTON_1 _PINNUM(0, 7)
-#define BUTTON_2 _PINNUM(0, 9)
+
+#define BUTTON_DFU _PINNUM(0, 7)
 #define BUTTON_PULL NRF_GPIO_PIN_PULLUP
 
-#define ROW_0_PIN _PINNUM(0, 28)
-#define ROW_1_PIN _PINNUM(0, 29)
-#define ROW_2_PIN _PINNUM(0, 30)
-#define ROW_3_PIN _PINNUM(0, 02)
 
 //--------------------------------------------------------------------+
 // BLE OTA
@@ -69,7 +64,7 @@
 #define USB_DESC_CDC_ONLY_PID 0x00B3
 
 #define UF2_PRODUCT_NAME "Corne Min"
-#define UF2_VOLUME_LABEL "CORNE-MIN"
+#define UF2_VOLUME_LABEL "CORNE-MIN-L"
 #define UF2_BOARD_ID "nRF52840-corne-min"
 #define UF2_INDEX_URL "https://mechboards.co.uk/"
 
