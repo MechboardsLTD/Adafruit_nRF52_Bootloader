@@ -102,6 +102,8 @@ void button_init(uint32_t pin);
 bool button_pressed(uint32_t pin);
 #endif
 
+bool matrix_boot_combo_pressed(void);
+
 bool is_ota(void);
 
 //--------------------------------------------------------------------+

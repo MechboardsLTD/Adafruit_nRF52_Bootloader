@@ -268,6 +268,8 @@ static void check_dfu_mode(void) {
     return;
   }
 
+  dfu_start = dfu_start || matrix_boot_combo_pressed();
+
   /*------------- Determine DFU mode (Serial, OTA, FRESET or normal) -------------*/
   // DFU button pressed
 #if defined(BUTTON_DFU)
