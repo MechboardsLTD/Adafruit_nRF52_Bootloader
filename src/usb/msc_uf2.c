@@ -228,6 +228,7 @@ void tud_msc_write10_complete_cb(uint8_t lun)
         PRINTF("Application update complete\r\n");
       }
 
+      NRFX_DELAY_MS(200);   // give host time to before reset/unmount
       bootloader_dfu_update_process(update_status);
 
       led_state(STATE_WRITING_FINISHED);
