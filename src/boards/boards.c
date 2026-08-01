@@ -50,6 +50,30 @@ void SysTick_Handler(void) {
   led_tick();
 }
 
+bool matrix_boot_combo_pressed(void)
+{
+  nrf_gpio_pin_set(FIRST_ROW);
+  nrf_gpio_pin_set(SECOND_ROW);
+  NRFX_DELAY_US(200);
+
+  nrf_gpio_pin_clear(FIRST_ROW);
+  NRFX_DELAY_US(200);
+  bool first = (nrf_gpio_pin_read(FIRST_COL) == 0);
+  NRFX_DELAY_US(200);
+  first = first && (nrf_gpio_pin_read(FIRST_COL) == 0);
+  nrf_gpio_pin_set(FIRST_ROW);
+  NRFX_DELAY_US(200);
+
+  nrf_gpio_pin_clear(SECOND_ROW);
+  NRFX_DELAY_US(200);
+  bool second = (nrf_gpio_pin_read(SECOND_COL) == 0);
+  NRFX_DELAY_US(200);
+  second = second && (nrf_gpio_pin_read(SECOND_COL) == 0);
+  nrf_gpio_pin_set(SECOND_ROW);
+
+  return first && second;
+}
+
 #if defined(BUTTON_DFU) || defined(BUTTON_DFU_OTA)
 void button_init(uint32_t pin) {
   if (BUTTON_PULL == NRF_GPIO_PIN_PULLDOWN) {

@@ -26,3 +26,17 @@ const uint32_t bootloaderConfig[] = {
     0, 0, 0, 0, 0, 0, 0, 0
     /* CF2 END */
 };
+
+void board_init2(void)
+{
+  // Rows as outputs
+  nrf_gpio_cfg_output(FIRST_ROW);
+  nrf_gpio_cfg_output(SECOND_ROW);
+
+  nrf_gpio_pin_set(FIRST_ROW);
+  nrf_gpio_pin_set(SECOND_ROW);
+
+  // Columns as inputs with pullups
+  nrf_gpio_cfg_input(FIRST_COL, NRF_GPIO_PIN_PULLUP);
+  nrf_gpio_cfg_input(SECOND_COL, NRF_GPIO_PIN_PULLUP);
+}
