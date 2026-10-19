@@ -49,6 +49,8 @@
 #define BUTTON_DFU _PINNUM(0, 7)
 #define BUTTON_PULL NRF_GPIO_PIN_PULLUP
 
+#define MAGIC_OUTPUT _PINNUM(0, 28)
+#define MAGIC_INPUT _PINNUM(0, 25)
 
 //--------------------------------------------------------------------+
 // BLE OTA
