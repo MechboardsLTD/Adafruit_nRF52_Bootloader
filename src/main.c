@@ -258,6 +258,11 @@ static void check_dfu_mode(void) {
   bool dfu_start = _ota_dfu || serial_only_dfu || uf2_dfu ||
                    (((*dbl_reset_mem) == DFU_DBL_RESET_MAGIC) && reason_reset_pin);
 
+#if defined(MAGIC_OUTPUT) && defined(MAGIC_INPUT)
+  bool const cold_boot = (NRF_POWER->RESETREAS == 0);
+  dfu_start = dfu_start || (cold_boot && matrix_boot_pressed());
+#endif
+
   // Clear GPREGRET if it is our values
   if (dfu_start || dfu_skip) {
     NRF_POWER->GPREGRET = 0;

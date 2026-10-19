@@ -104,6 +104,10 @@ bool button_pressed(uint32_t pin);
 
 bool is_ota(void);
 
+#if defined(MAGIC_OUTPUT) && defined(MAGIC_INPUT)
+bool matrix_boot_pressed(void);
+#endif
+
 //--------------------------------------------------------------------+
 // Display
 //--------------------------------------------------------------------+

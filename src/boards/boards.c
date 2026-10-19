@@ -50,6 +50,29 @@ void SysTick_Handler(void) {
   led_tick();
 }
 
+#if defined(MAGIC_OUTPUT) && defined(MAGIC_INPUT)
+void matrix_boot_init(void) {
+  nrf_gpio_cfg_output(MAGIC_OUTPUT);
+  nrf_gpio_pin_set(MAGIC_OUTPUT);
+
+  nrf_gpio_cfg_input(MAGIC_INPUT, NRF_GPIO_PIN_PULLUP);
+}
+
+bool matrix_boot_pressed(void)
+{
+  nrf_gpio_pin_set(MAGIC_OUTPUT);
+  NRFX_DELAY_US(200);
+
+  nrf_gpio_pin_clear(MAGIC_OUTPUT);
+  NRFX_DELAY_US(200);
+  bool matrix_boot = (nrf_gpio_pin_read(MAGIC_INPUT) == 0);
+  NRFX_DELAY_US(200);
+  matrix_boot = matrix_boot && (nrf_gpio_pin_read(MAGIC_INPUT) == 0);
+
+  return matrix_boot;
+}
+#endif
+
 #if defined(BUTTON_DFU) || defined(BUTTON_DFU_OTA)
 void button_init(uint32_t pin) {
   if (BUTTON_PULL == NRF_GPIO_PIN_PULLDOWN) {
@@ -76,6 +99,9 @@ void board_init(void) {
   NRF_CLOCK->LFCLKSRC = CLOCK_LFCLKSRC_SRC_RC;
   NRF_CLOCK->TASKS_LFCLKSTART = 1UL;
 
+#if defined(MAGIC_OUTPUT) && defined(MAGIC_INPUT)
+matrix_boot_init();
+#endif
 #ifdef BUTTON_DFU
   button_init(BUTTON_DFU);
 #endif
