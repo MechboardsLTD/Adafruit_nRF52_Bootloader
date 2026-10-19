@@ -22,8 +22,8 @@
  * THE SOFTWARE.
  */
 
-#ifndef _LILY_R2G_H
-#define _LILY_R2G_H
+#ifndef _LILY_W2G_H
+#define _LILY_W2G_H
 
 #define _PINNUM(port, pin) ((port) * 32 + (pin))
 
@@ -54,7 +54,7 @@
 // BLE OTA
 //--------------------------------------------------------------------+
 #define BLEDIS_MANUFACTURER "Mechboards"
-#define BLEDIS_MODEL "Lily R2G Bootloader"
+#define BLEDIS_MODEL "Lily W2G Bootloader"
 
 //--------------------------------------------------------------------+
 // USB
@@ -63,9 +63,9 @@
 #define USB_DESC_UF2_PID 0x00B3
 #define USB_DESC_CDC_ONLY_PID 0x00B3
 
-#define UF2_PRODUCT_NAME "Lily R2G"
-#define UF2_VOLUME_LABEL "LILY-R2G-L"
-#define UF2_BOARD_ID "nRF52840-lily-r2g"
+#define UF2_PRODUCT_NAME "Lily W2G"
+#define UF2_VOLUME_LABEL "LILY-W2G-L"
+#define UF2_BOARD_ID "nRF52840-lily-w2g"
 #define UF2_INDEX_URL "https://mechboards.co.uk/"
 
-#endif // _LILY_R2G_H
+#endif // _LILY_W2G_H
